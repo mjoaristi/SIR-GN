@@ -4,15 +4,15 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.cluster import KMeans
 
-def parse_arguments():
+def parse_arguments():    
+    
+    parser = argparse.ArgumentParser(description="Run SIR-GN.")
+    parser.add_argument('--input_path', type = str, action="store", dest="input_path", help='Input graph path.')
 
-    parser = argparse.ArgumentParser(description="Run data analysis.")
-    parser.add_argument('--input_path', type = str, action="store", dest="input_path", help='Input graph path')
+    parser.add_argument('--embedding_size', type = int, action="store", dest="embedding_size", help='Embedding size.')
+    parser.add_argument('--max_it', type = int, default= 100, action="store", dest="max_it", help='Maximum amount of iterations.')
 
-    parser.add_argument('--embedding_size', type = int, action="store", dest="embedding_size", help='Embedding size')
-    parser.add_argument('--max_it', type = int, default= 100, action="store", dest="max_it", help='Maximum amount of iterations')
-
-    parser.add_argument('--output_path', type = str, action="store", dest="output_path", help='Output embedding file path')
+    parser.add_argument('--output_path', type = str, action="store", dest="output_path", help='Output embedding file path.')
 
     return parser.parse_args()
 
